@@ -1,0 +1,43 @@
+
+
+python merge.py Json1.json Json2.json OUTPU_JSON.json
+
+python merge.py ./ant_json1/train_road_marks_seg-11.json ./ant_json1/val_road_marks_seg-12.json ./ant_json1/merged_road_seg.json
+
+python merge.py ./ant_json2/1.json ./ant_json2/2.json ./ant_json/merged_road_seg.json
+
+
+
+________________________________________________________________________________________________________________________
+
+pyodi coco merge coco_1.json coco_2.json output.json
+
+pyodi coco merge ./ant_json2/1.json ./ant_json2/2.json ./ant_json/merged_road_seg.json
+
+pyodi coco merge ./ant_json1/train_road_marks_seg-11.json ./ant_json1/val_road_marks_seg-12.json ./ant_json1/merged_road_seg3.json
+pyodi coco merge train_road_marks_seg-11.json val_road_marks_seg-12.json merged_road_seg3.json
+
+_______________________________________________________________________________________________________________________________
+
+python3 -m cocojson.run.merge_from_file mergelist output 
+
+python3 -m cocojson.run.merge_from_file mergelist output 
+python3 -m cocojson.run.merge_from_file --root ./ant_json1 ./ant_json3 
+
+python3 -m cocojson.run.merge -r /home/dh/Workspace/cocojson/test_datasets/datasetA/images -j /home/dh/Workspace/cocojson/test_datasets/datasetA/val.json  -r test_datasets/datasetC/images/ -j test_datasets/datasetC/val.json  -o test_datasets/merged/
+
+python3 -m cocojson.run.merge -r ./data/testData -j ./data/testData/201213_E_14_CCW_in_E_B_000_02578_PGON.json  -r ./data/testData/ -j ./data/testData/201213_E_14_CCW_in_E_B_001_00351_PGON.json  -o ./data/
+
+python3 -m cocojson.run.merge -r ./data/m_data/train -j ./data/m_data/train/e_motor_train.json  -r ./data/m_data/valid/ -j ./data/m_data/valid/e_motor_val.json  -o ./data/
+
+python3 -m cocojson.run.merge -r ./data/testData2 -j ./data/testData2/201213_E_15_CCW_in_E_B_001_00055_PGON.json -r ./data/testData2 -j ./data/testData2/201213_E_14_CCW_in_E_B_001_01966_PGON.json -r ./data/testData2 -j ./data/testData2/201213_E_14_CCW_in_E_B_001_01713_PGON.json -r ./data/testData2 -j ./data/testData2/201213_E_14_CCW_in_E_B_000_02578_PGON.json  -r ./data/testData2/ -j ./data/testData2/201213_E_14_CCW_in_E_B_001_00351_PGON.json  -o ./data/
+
+-r ./data_new/testData/val/ -j /./data_new/testData/val/201229_E_14_CW_in_D_S_001_00428_PGON.json -r ./data_new/testData/val/ -j /./data_new/testData/val/201229_E_14_CW_in_D_S_002_00761_PGON.json________________________________________________________________________________________________________________________________________
+
+python3 -m cocojson.run.merge_from_file  ./data/testData/datasets_split.txt  -o ./data/
+
+
+
+
+
+
