@@ -32,18 +32,18 @@ class Json_line:
             annotations.append(annotation)
 
         ############## CATEGORIES
-        # categories = []
+        categories = []
         for ctg in ctg:
             category = {"id": ctg["id"], "name": ctg["name"],
                         # "polyline": ctg["polyline"],
                         # "id": ctg["id"]
                         "supercategory": ctg["supercategory"], "color": ctg["color"], "metadata": ctg["metadata"],
                         "keypoint_colors": ctg["keypoint_colors"]}
-            # categories.append(category)
+            categories.append(category)
 
         self.__dict__['images'] = images
         self.__dict__["annotations"] = annotations
-        self.__dict__["categories"] = category  # categories
+        self.__dict__["categories"] = categories  # categories
 
 
 # open source json annotation file and print number of objects
