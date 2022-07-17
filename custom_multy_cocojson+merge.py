@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 
@@ -6,6 +7,8 @@ json_file = 'custom_multy_json.json'
 
 new_json_path = './custom_json_new/'
 new_json_file = 'custom_multy_json2.json'
+new_json_file2 = '_coco.json'
+new_json_file1 = 'custom_multy'
 
 images = []
 annotations = []
@@ -53,10 +56,22 @@ for file in os.listdir(local_path):
 
 print('Overwriting Custom Labels manifest...')
 # write new json file with new format
-with open(new_json_path + json_file, 'a+') as outfile:
-    # print(f' OUTFILE: ==== {outfile}')
-    json.dump(dd, outfile, sort_keys=True, indent=4, )  # , indent=4, im.__dict__
-    outfile.write('\n')
-    outfile.close()
-    print(f' Outfile: == {json_file} // Location: == {new_json_path} \n')
+for file in os.listdir(new_json_path):
+    if file == json_file:
+        print('file exist ------ ')
+        now = datetime.datetime.now()
+        currentDate = "_" + str(now.day) + "_" + str(now.hour) + "_" + str(now.minute)+ "_" + str(now.second)
+        file_output = os.path.join(new_json_file1 + currentDate + new_json_file2)
+        with open(new_json_path + file_output, 'a+') as outfile:
+            json.dump(dd, outfile, sort_keys=True, indent=4, )  # , indent=4, im.__dict__
+            outfile.write('\n')
+            outfile.close()
+            print(f' Outfile: == {json_file} // Location: == {new_json_path} \n')
+    else:
+        print(' no file found ------ ')
+        with open(new_json_path + json_file, 'a+') as outfile:
+            json.dump(dd, outfile, sort_keys=True, indent=4, )  # , indent=4, im.__dict__
+            outfile.write('\n')
+            outfile.close()
+            print(f' Outfile: == {json_file} // Location: == {new_json_path} \n')
 
