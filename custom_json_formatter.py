@@ -4,7 +4,7 @@ local_path = './custom_json/'
 coco_json = 'e_motor_val.json'
 coco_json_file = local_path + coco_json
 
-new_json_file = 'custom_json_labels.json'
+new_json_file = 'custom_json.json'
 
 open(local_path + new_json_file, 'w').close()
 
@@ -13,7 +13,7 @@ label_att = 'annotations'
 
 class Json_line:
     def __init__(self, img, ant, ctg):
-        # Get image info. Annotations are dealt with separately
+        # Get image info. Annotations are dealt with seperately
 
         ############## IMAGES
         images = []
@@ -43,7 +43,7 @@ class Json_line:
 
         self.__dict__['images'] = images
         self.__dict__["annotations"] = annotations
-        self.__dict__["categories"] = categories  # categories
+        self.__dict__["categories"] = categories    # categories
 
 
 # open source json annotation file and print number of objects
@@ -53,7 +53,7 @@ with open(coco_json_file) as f:
     source_categories = js['categories']
     source_annotations = js['annotations']
 
-    print('Images: ' + str(len(source_images)))
+    print('images: ' + str(len(source_images)))
     print('annotations: ' + str(len(source_annotations)))
     print('categories: ' + str(len(source_categories)))
 
@@ -64,7 +64,7 @@ print('Writing Custom Labels manifest...')
 # write new json file with new format
 with open(local_path + new_json_file, 'a+') as outfile:
     # print(f' OUTFILE: ==== {outfile}')
-    json.dump(im.__dict__, outfile)
+    json.dump(im.__dict__, outfile, sort_keys=True, indent=4)
     outfile.write('\n')
     outfile.close()
 
