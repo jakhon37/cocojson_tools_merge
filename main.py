@@ -1,16 +1,21 @@
-# This is a sample Python script.
+with open(json_path) as f2:
+    js2 = json.load(f2)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    source_infos2 = js2['info']
+    source_images2 = js2['images']
+    source_categories2 = js2['categories']
+    source_annotations2 = js2['annotations']
 
+    print('\nFILE < ' + str(num_found_files) + ' > details: ')
+    print('info: ' + str(len(source_infos2)))
+    print('images: ' + str(len(source_images2)))
+    print('annotations: ' + str(len(source_annotations2)))
+    print('categories: ' + str(len(source_categories2)))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    file_desc2 = source_infos2['description']
+    print(f'second file code is : {file_desc2[1:33]}')
+    print(f'second file last : {file_desc2[33:47]}')
+    if file_desc2[33:47] == 'PGON JSON file':
+        print(f'file type is :{file_desc2[33:47]}')
+    else:
+        print(f'did not match < PGON JSON file >')
